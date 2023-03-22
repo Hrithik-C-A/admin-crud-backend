@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-between; ">    
+            <h1 style="font-size: xx-large;font-weight: bold;">Welcome : {{name}}</h1>
+            <div style="display: flex; gap: 1rem">
+                <h3><a href="/addemp"><button> Add Employee</button></a></h3>
+                <h3><a href="/logout"><button> Logout</button></a></h3>
+            </div>
+    </div>
+    <h2 style="font-size: x-large;font-weight: bolder; text-align: center;">Employees Data</h2>
+    {{#each find}}
+    <ul>
+        <li style="display: flex;
+        justify-content: space-between;"><span style="font-weight: bold; font-size: large;">{{this.name}} </span> <span>{{this.position}}</span>
+        <div><a href="/empupdate/{{this._id}}"><button>Update</button></a><a href="/empdelete/{{this._id}}" style="margin-left: 1rem;"><button>Delete</button></a>
+        </div>
+        </li>
+    </ul>
+    {{/each}}
+</body>
+</html>

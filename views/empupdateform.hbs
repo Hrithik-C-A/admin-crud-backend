@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="font-size: xx-large;font-weight: bolder; text-align: center;">Update Employee Details</h1>
+    <div style="display: flex; justify-content: space-around; ">
+        <section>
+            <form style="display: flex; flex-direction: column; gap: 1rem;" action="/updatedata/{{find._id}}" method="post">
+            <input type="text" placeholder="Employee Name" name="name" value="{{find.name}}" required>
+            <input type="text" placeholder="Employee Position" name="position" value="{{find.position}}" required>
+            <input type="text" placeholder="Employee Experience" name="experience" value="{{find.experience}}" required>
+            <div>
+                <button type="submit">Update</button>
+            </div>
+            </form>
+        </section>
+        <section>
+            
+            <ul>
+                <li>{{find.name}}</li>
+                <li>{{find.position}}</li>
+                <li>{{find.experience}}</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
