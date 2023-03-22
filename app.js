@@ -35,23 +35,17 @@ app.get('/dashboard',async (req,res)=>{
         res.redirect('/')
     }
 
-    // if (req.body.adminname === 'Admin123' && req.body.adminpass === '123') {
-        
-    // } else {
-    //     res.send("Please Enter Correct Username And Password");
-    // }
 })
 
 app.post('/dashboard', async (req, res) => {
     const db = mongoose.connection.db;
     const find = await db.collection('employees').find().toArray();
-
-    if (req.body.adminname === 'Admin123' && req.body.adminpass === '123') {
+    req.session.admin = {
+        adminname: 'Admin123',
+        adminpass: '123'
+    }
+    if (req.body.adminname == req.session.admin.adminname && req.body.adminpass == req.session.admin.adminpass) {
         req.session.loginstatus = true
-        req.session.admin = {
-            adminname: 'Admin123',
-            adminpass: '123'
-        }
         res.redirect('/dashboard');
     } else {
         req.session.loginstatus = false
