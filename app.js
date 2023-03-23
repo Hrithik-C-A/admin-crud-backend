@@ -73,8 +73,9 @@ app.post('/updatedata/:id', async (req, res) => {
         { $set: updatedEmployee }, // update the specified fields
         { returnOriginal: false } // return the updated document
     );
-    const find = await db.collection('employees').findOne({ _id: new mongoose.Types.ObjectId(req.params.id) });
-    res.render('updateddb',{find})
+    // const find = await db.collection('employees').findOne({ _id: new mongoose.Types.ObjectId(req.params.id) });
+    // res.render('updateddb',{find})
+    res.redirect('/dashboard')
 });
 
 app.get('/empdelete/:id',async(req,res)=>{
